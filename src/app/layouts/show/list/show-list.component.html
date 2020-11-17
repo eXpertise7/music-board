@@ -1,0 +1,32 @@
+<div class="row">
+
+    <div class="col-12">
+
+        <button pButton type="button" class="btn btn-primary" routerLink="/show/create" label="Create Show"></button>
+
+    </div>
+
+</div>
+
+<div class="row mt-2">
+
+    <div class="col-12">
+
+        <div class="event" *ngFor="let event of events" [style.background]="event.StyleColor">
+
+            <div class="event-row time">{{event.EventTime}}</div>
+            <div class="event-row artist">
+                <h1>{{event.Artist}}</h1>
+                <p>{{event.Venue}}</p>
+            </div>
+            <div class="event-row ticket">
+                <a href="{{event.TicketUrl}}">{{event.TicketUrl}}</a>
+            </div>
+
+            <button pButton pRipple type="button" icon="pi pi-times" (click)="removeEvent(event)" class="p-button-rounded p-button-danger delete"></button>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,34 @@
+default:
+  image: registry.hub.docker.com/library/node:12
+
+variables:
+  NODE_OPTIONS: --max_old_space_size=8192
+
+stages:
+  - build
+
+build-job:
+  stage: build
+  except:
+    - tags
+  cache:
+    paths:
+      - node_modules/
+  script:
+    - yarn install
+    - yarn build
+  artifacts:
+    paths:
+      - dist/**
+    expire_in: 1 week
+
+lint-job:
+  stage: build
+  except:
+    - tags
+  cache:
+    paths:
+      - node_modules/
+  script:
+    - yarn install
+    - yarn lint

@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/scout-ui-exercise",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
